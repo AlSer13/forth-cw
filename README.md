@@ -1,3 +1,6 @@
 # Forth coursework
 
-To check prime words: cat path/to/prime_words/* | ./start (from forthress home)
+To test programs, run from forthress home
+    for even check: cat ../forth-cw/even_words/* | ./start
+    for prime check: cat path/to/prime_words/* | ./start
+    for concat: cat ../forth-cw/string_words/* | ./start
