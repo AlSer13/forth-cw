@@ -1,0 +1,10 @@
+: str_cpy ( dest src -- dest_end) 
+  repeat 
+    swap 1 + dup rot 1 + dup ( dest+1 dest+1 src+1 src+1 )
+    rot 1 - swap 1 - ( dest+1 src+1 dest src )
+    c@ dup rot ( dest+1 src+1 char char dest )
+    c! not
+  until
+  drop
+;
+

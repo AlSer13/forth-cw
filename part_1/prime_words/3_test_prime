@@ -1,0 +1,2 @@
+." is 6 prime? " 6 mem_prime @ . cr
+." is 7 prime? " 7 mem_prime @ . cr

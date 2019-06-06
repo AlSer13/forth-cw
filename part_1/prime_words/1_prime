@@ -1,0 +1,1 @@
+: prime 2 ( a 2 ) repeat swap dup ( i a a ) rot dup ( a a i i ) 1 + -rot ( a i+1 a i ) % not until ( a a+1 ) 1 - = ;   
