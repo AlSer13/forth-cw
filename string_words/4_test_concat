@@ -1,4 +1,0 @@
-m" string" ." put 'string' into memory" cr
-m" abcdef" ." put 'abcdef' into memory" cr
-concat ." call concat" cr
-." should be stringabcdef: " prints cr

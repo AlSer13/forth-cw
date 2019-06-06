@@ -1,1 +1,0 @@
-: mem_prime prime 1 allot ( answ addr ) dup -rot c! ;

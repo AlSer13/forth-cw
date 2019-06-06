@@ -1,4 +1,0 @@
-: str_len ( str -- length )
-  dup 1 - repeat 1 + dup c@ not until swap -
-;
-
