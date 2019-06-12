@@ -1,1 +1,1 @@
-cat ./lib/util.frt ./lib/branch.frt - | ./part_2/bin/eforthless
+cat ./lib/util.frt ./lib/branch.frt ./lib/cycle.frt - | ./part_2/bin/eforthless
