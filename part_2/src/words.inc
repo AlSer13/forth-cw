@@ -122,19 +122,25 @@ native "or", or
     jmp next
 
 colon "'", tick, 1
-    dq xt_inbuf
-    dq xt_word
-    dq xt_drop
-    dq xt_inbuf
-    dq xt_find_word, xt_dup
+	dq xt_inbuf
+	dq xt_word
+	dq xt_drop
+	dq xt_inbuf
+	dq xt_find_word, xt_dup
     branch0 .no_such_word
-    dq xt_cfa
-    dq xt_exit
+	dq xt_cfa
+    dq xt_state, xt_fetch
+    branch0 .interpret
+    dq xt_lit, xt_lit
+    dq xt_comma
+    dq xt_comma
+.interpret:
+	dq xt_exit
     .no_such_word:
     dq xt_inbuf, xt_prints
     dq xt_lit, msg_nsw, xt_prints
-    dq xt_exit
-    
+    dq xt_exit   
+
 colon "count", count
     dq xt_dup
 .loop:
@@ -161,6 +167,8 @@ native ".", dot
 
 native ".S", show_stack
     mov rdx, rsp
+    cmp rdx, [stack_base]
+    jae next
     .loop:
     mov rdi, [rdx]
     push rdx
@@ -277,7 +285,7 @@ native "branch", branch
     mov pc, [pc]
     jmp next
 
-native "0branch", branch0
+native "branch0", branch0
     pop rax
     test rax, rax
     jnz .skip
